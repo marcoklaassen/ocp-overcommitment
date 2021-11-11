@@ -1,0 +1,11 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: disable-cpu-units
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-kubelet: small-pods
+  kubeletConfig:
+    cpuCfsQuota:
+      - "false"
